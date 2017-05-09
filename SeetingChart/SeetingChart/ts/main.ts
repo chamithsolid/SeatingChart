@@ -1,17 +1,27 @@
 ﻿module Ts.SeatingChart {
 
     export class Main {
+        private blockds = new kendo.data.DataSource();
+        private seatsds = new kendo.data.DataSource();
 
-        loadBlockInfo(uid: string) {
-
+        loadLayout() {
+            $.when($.getJSON('../data/blocks.json'), $.getJSON('../data/seats.json')).done((e1, e2) => {
+                this.blockds.data(e1);
+                this.seatsds.data(e2);
+                $.each(this.blockds.view(), (i, d) => {
+                    console.log(d);
+                });
+            });
+        }
+        openBlockInfo(uid: string) {
             $('#blockModel').modal('show').appendTo('body');
         }
-       
+
         putObject(e) {
             if (e === 'block') {
                 this.block.add();
                 $('.openModel').on('click', (e) => {
-                    this.loadBlockInfo($(e.target).data('blockid'));
+                    this.openBlockInfo($(e.target).data('blockid'));
                 });
             }
         }
@@ -25,6 +35,7 @@
         constructor() {
             this.block = new Block();
             this.initControllers();
+            this.loadLayout();
         }
     }
     $(document).ready(() => {

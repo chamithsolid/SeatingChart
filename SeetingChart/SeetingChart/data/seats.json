@@ -1,0 +1,30 @@
+﻿[
+  {
+    "seatState": 1,
+    "seatNumber": 1,
+    "blockModelGuid": "545sd4fsdfs2",
+    "rowNumber": 0,
+    "colNumber": 0
+  },
+  {
+    "seatState": 2,
+    "seatNumber": 2,
+    "blockModelGuid": "545sd4fsdfs2",
+    "rowNumber": 0,
+    "colNumber": 1
+  },
+  {
+    "seatState": 1,
+    "seatNumber": 3,
+    "blockModelGuid": "545sd4fsdfs2",
+    "rowNumber": 1,
+    "colNumber": 0
+  },
+  {
+    "seatState": 4,
+    "seatNumber": 4,
+    "blockModelGuid": "545sd4fsdfs2",
+    "rowNumber": 1,
+    "colNumber": 1
+  }
+]

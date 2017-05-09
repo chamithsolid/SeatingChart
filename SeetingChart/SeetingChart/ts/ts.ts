@@ -2,7 +2,6 @@
 /// <reference path="model.ts" />
 
 module Ts.SeatingChart {
-
     export class Object {
         dragable(div: string) {
             $('#' + div).draggable();
@@ -15,8 +14,8 @@ module Ts.SeatingChart {
             this.dragable(div);
             this.resizable(div);
         }
-
         constructor() {
+
         }
     }
 
@@ -40,11 +39,22 @@ module Ts.SeatingChart {
                     seatnumber++;
                 }
             }
-            let block = new BlockModel('untitile', blockGuid, 10, 10, seats);
+            let block = new BlockModel('untitile', blockGuid, 10, 10, seats, (30 * 10) + 20, (30 * 10) + 50);
             var template = kendo.template($("#template-block").html());
             var result = template(block);
             $("#canves").append(result);
             return blockGuid;
+        }
+
+        viewDom(blockModel: BlockModel, seatModel: SeatModel[]): void {
+            let block = new BlockModel('untitile', blockModel.guid, blockModel.row, blockModel.col, seatModel, (30 * blockModel.col) + 20,
+                (30 * blockModel.row) + 50);
+            var template = kendo.template($("#template-block").html());
+            var result = template(block);
+            $("#canves").append(result);
+        }
+        updateDom(): void {
+
         }
 
         add() {

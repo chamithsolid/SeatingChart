@@ -3,12 +3,14 @@ var Ts;
     var SeatingChart;
     (function (SeatingChart) {
         var BlockModel = (function () {
-            function BlockModel(name, guid, row, col, seatmodel) {
+            function BlockModel(name, guid, row, col, seatmodel, width, height) {
                 this.name = name;
                 this.guid = guid;
                 this.row = row;
                 this.col = col;
                 this.seatModel = seatmodel;
+                this.width = width;
+                this.height = height;
             }
             return BlockModel;
         }());

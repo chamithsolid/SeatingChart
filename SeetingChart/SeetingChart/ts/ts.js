@@ -44,11 +44,19 @@ var Ts;
                         seatnumber++;
                     }
                 }
-                var block = new SeatingChart.BlockModel('untitile', blockGuid, 10, 10, seats);
+                var block = new SeatingChart.BlockModel('untitile', blockGuid, 10, 10, seats, (30 * 10) + 20, (30 * 10) + 50);
                 var template = kendo.template($("#template-block").html());
                 var result = template(block);
                 $("#canves").append(result);
                 return blockGuid;
+            };
+            Block.prototype.viewDom = function (blockModel, seatModel) {
+                var block = new SeatingChart.BlockModel('untitile', blockModel.guid, blockModel.row, blockModel.col, seatModel, (30 * blockModel.col) + 20, (30 * blockModel.row) + 50);
+                var template = kendo.template($("#template-block").html());
+                var result = template(block);
+                $("#canves").append(result);
+            };
+            Block.prototype.updateDom = function () {
             };
             Block.prototype.add = function () {
                 this.apply(this.createDom());
